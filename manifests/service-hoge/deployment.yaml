@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: service-hoge
+  name: service-hoge
+spec:
+  selector:
+    matchLabels:
+      run: service-hoge
+  template:
+    metadata:
+      labels:
+        run: service-hoge
+    spec:
+      containers:
+      - image: yuyat/service-hoge
+        env:
+          - name: PORT
+            value: '80'
+        name: service-hoge
+        resources:
+          requests:
+            cpu: 100m

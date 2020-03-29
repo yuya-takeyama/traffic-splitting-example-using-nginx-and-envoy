@@ -1,0 +1,15 @@
+resources:
+  - service-hoge/deployment.yaml
+  - service-hoge/service.yaml
+  - service-fuga/deployment.yaml
+  - service-fuga/service.yaml
+  - nginx/deployment.yaml
+  - nginx/service.yaml
+
+configMapGenerator:
+  - name: nginx-config
+    files:
+      - nginx/nginx-config/default.conf
+  - name: envoy-config
+    files:
+      - nginx/envoy-config/envoy.yaml

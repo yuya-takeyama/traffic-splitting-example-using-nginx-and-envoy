@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: service-fuga
+  name: service-fuga
+spec:
+  selector:
+    matchLabels:
+      run: service-fuga
+  template:
+    metadata:
+      labels:
+        run: service-fuga
+    spec:
+      containers:
+      - image: yuyat/service-fuga
+        env:
+          - name: PORT
+            value: '80'
+        name: service-fuga
+        resources:
+          requests:
+            cpu: 100m
